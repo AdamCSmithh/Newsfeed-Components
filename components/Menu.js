@@ -31,38 +31,54 @@ let menuItems = [
 
   Step 6: Use 'menuMaker' to create a menu using the 'menuItems' array, and append the returned menu to the header.
 */
-const menuButton = document.querySelector('.menu-button');
-const header = document.querySelector('.header');
+
 function menuMaker (array){
-  const menu = document.createElement('div');
+  const menuButton = document.querySelector('.menu-button');
   const list = document.createElement('ul');
-  const students = document.createElement('li');
-  const faculty = document.createElement('li');
-  const whatsNew = document.createElement('li');
-  const techTrends = document.createElement('li');
-  const music = document.createElement('li');
-  const logOut = document.createElement('li');
 
-  menu.appendChild(list);
-  list.appendChild(students);
-  list.appendChild(faculty);
-  list.appendChild(whatsNew);
-  list.appendChild(techTrends);
-  list.appendChild(music);
-  list.appendChild(logOut);
 
-  menu.classList.add('menu');
-
-  students.textContent = array[0];
-  students.textContent = array[1];
-  students.textContent = array[2];
-  students.textContent = array[3];
-  students.textContent = array[4];
-  students.textContent = array[5];
+  array.forEach(i => {
+    const newItem = document.createElement('li');
+    newItem.textContent = array[i];
+    console.log(newItem);
+    });
+    
+  
+  
 
   menuButton.addEventListener('click', e => {
-    menu.classList.toggle('menu-open');
+    menuButton.classList.toggle('menu-open');
   });
-  return menu;
+  
+  return menuButton;
 }
+const header = document.querySelector('.header');
+const newMenu = menuMaker(menuItems);
+header.appendChild(newMenu);
 
+
+
+
+// const students = document.createElement('li');
+  // const faculty = document.createElement('li');
+  // const whatsNew = document.createElement('li');
+  // const techTrends = document.createElement('li');
+  // const music = document.createElement('li');
+  // const logOut = document.createElement('li');
+
+  // menu.appendChild(list);
+  // list.appendChild(students);
+  // list.appendChild(faculty);
+  // list.appendChild(whatsNew);
+  // list.appendChild(techTrends);
+  // list.appendChild(music);
+  // list.appendChild(logOut);
+
+  // menu.classList.add('menu');
+
+  // students.textContent = array[0];
+  // students.textContent = array[1];
+  // students.textContent = array[2];
+  // students.textContent = array[3];
+  // students.textContent = array[4];
+  // students.textContent = array[5];
