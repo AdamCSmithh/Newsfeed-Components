@@ -115,7 +115,7 @@ const data = [
   Refresh the page to see the new article.
 */
 
-function articleMaker ({title, date, firstParagraph, secondParagraph, thirdParagraph}) {
+function articleMaker (array) {
   const mainDiv = document.createElement('div');
   const titleH2 = document.createElement('h2');
   const articleDate = document.createElement('p');
@@ -136,20 +136,20 @@ mainDiv.classList.add('article');
 articleDate.classList.add('date');
 span.classList.add('expandButton');
 
-titleH2.textContent = title;
-articleDate.textContent = date;
-p1.textContent = firstParagraph;
-p2.textContent = secondParagraph;
-p3.textContent = thirdParagraph; 
+titleH2.textContent = array.title;
+articleDate.textContent = array.date;
+p1.textContent = array.firstParagraph;
+p2.textContent = array.secondParagraph;
+p3.textContent = array.thirdParagraph; 
 span.textContent = "+";
 
-span.addEventListener('click', (e) => {
+mainDiv.addEventListener('click', (e) => {
   mainDiv.classList.toggle('article-open');
 });
 return mainDiv;
 };
-
+const articles = document.querySelector('.articles')
 data.forEach(item => {
-document.querySelector('.articles').appendChild(articleMaker(item));
+articles.appendChild(articleMaker(item));
 });
 
